@@ -1,0 +1,64 @@
+<div class="page__bd page__bd_spacing ">
+    <div class="weui-panel" id="form">
+        <div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title">用户注册</h4>
+                <p class="weui-media-box__desc"> 请完善下列用户信息 </p>
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form">
+            <!-- <div class="weui-cell" style="display: none">
+                <div class="weui-cell__hd"><label class="weui-label">OPEN_ID</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入单位名称" [(ngModel)]="RegisterData.OPEN_ID" />
+                </div>
+            </div> -->
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">单位名称</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入单位名称" [(ngModel)]="RegisterData.UNIT_NAME" required emptyTips="请输入单位名称" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">所在地区</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="选择地区" [(ngModel)]="Area_Name" (click)="SelectArea()" readonly required emptyTips="请选择地区" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">姓名</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入姓名" [(ngModel)]="RegisterData.USER_NAME" required emptyTips="请输入姓名" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">手机号码</label></div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]{11}" placeholder="请输入号码" [(ngModel)]="RegisterData.PHONE" required emptyTips="请填写手机号码" notMatchTips="请输入正确的手机号码" />
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells__title">正在使用我们公司哪些产品：</div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" *ngFor="let item of ProductList">
+                  <div class="weui-cell__hd">
+                      <input type="checkbox" class="weui-check" [name]="'PRODUCT'+item.value" (click)="SelectProduct(item.ITEM_ID, $event.target.checked)" [checked]="item.checked" [value]="item.value" required pattern="{1,2}" tips="请勾选1-2个使用的产品">
+                      <i class="weui-icon-checked" ></i>
+                  </div>
+                  <div class="weui-cell__bd">
+                      <p>{{item.ITEM_NAME}}</p>
+                  </div>
+              </label>
+        </div>
+        <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="RegisterEvent()">注册</a>
+    </div>
+    <div class="weui-footer">
+        <p class="weui-footer__links">
+            <a href="javascript:home();" class="weui-footer__link">广力软件</a>
+        </p>
+        <p class="weui-footer__text">Copyright &copy; 1996-2018 广力公司</p>
+    </div>
+</div>

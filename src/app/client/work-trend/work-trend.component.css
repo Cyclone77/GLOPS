@@ -1,0 +1,9 @@
+.inline {
+    display: inline-block;
+}
+
+.input_text {
+    text-align: center;
+    width: 120px;
+    display: inline-block;
+}

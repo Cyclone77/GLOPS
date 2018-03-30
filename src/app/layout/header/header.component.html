@@ -1,0 +1,43 @@
+<div class="sidebar">
+    <div class="gl-logo">
+        <img src="assets/sysimgs/logo.png" alt="">
+    </div>
+    <div class="gl-head-menu">
+        <el-tooltip placement="bottom">
+            <span class="head-menu-btn switch" (click)="onMenuSwitch('')">
+                <i class="fa fa-align-justify fa-2x"></i>
+            </span>
+            <ng-template #tip><span>支持快捷键 Ctrl + 方向键左右 </span></ng-template>
+        </el-tooltip>
+    </div>
+    <div class="syscore">
+        <!-- <el-button type="text" (click)="openAddressBook()">
+            <i class="fa fa-address-card-o fa-lg address-book" title="通讯录"></i>
+            <span class="address-title">通讯录</span>
+        </el-button> -->
+        <el-dropdown trigger="click" [model]="data" type="primary" [el-class]="'drop-text'" size="mini" (selected)="selectitem($event)">
+            {{userData.UnitName}}&nbsp;&nbsp;&nbsp;&nbsp;{{userData.UserName}}
+        </el-dropdown>
+    </div>
+</div>
+
+<p-sidebar [styleClass]="'address-dlg'" [(visible)]="visibleAddress" position="right" [baseZIndex]="10000" [blockScroll]="true">
+    <span class="title">通讯录</span>
+    <div class="address-list">
+        <div class="text-search">
+            <gl-findinput [placeholder]="'输入姓名或者电话号码查询'" (selected-item)="selectedItem($event)" [findedData]="findedData" (find-data-ed)="findDataEd($event)"></gl-findinput>
+        </div>
+        <div class="books-list" #bookList>
+            <div class="address-book" *ngFor="let item of addressList" (click)="selectAddressBook(item)" [attr.fid]="item['KEY_ID'] === Select_KEY_ID" [attr.id]="item['KEY_ID']">
+                <div class="address-name">
+                    <span class="name">{{ item['A0101'] }}</span>
+                    <span class="unit" [title]="item['B0001_CN']">{{ item['B0001_CN'] }}</span>
+                </div>
+                <div class="address-phone">
+                    <div class="phone">手机：<span>{{ item['C8201'] }}</span></div>
+                    <div class="phone">座机：<span>{{ item['C8202'] }}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</p-sidebar>

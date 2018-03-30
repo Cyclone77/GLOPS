@@ -1,0 +1,7 @@
+{
+    "/G003_GLOPS": {
+        "target": "http://localhost:2261",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

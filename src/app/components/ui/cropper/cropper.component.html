@@ -1,0 +1,23 @@
+<div class="cropper-con clearfix">
+    <div class="core-area">
+        <h3>选择文件</h3>
+        <div class="btn-area">
+            <button class="file-btn file-upload mt-sm">
+                <input accept type="file" (change)="fileChange($event)" />
+                <i class="fa fa-upload"></i><span>浏览文件</span>
+            </button>
+        </div>
+        <!-- <h5 class="text-md my-md">裁剪类型</h5>
+        <el-radio-group [(model)]="shape" [el-class]="'shape'" (click)="shapeSelected()">
+            <el-radio-button label="Square">直角</el-radio-button>
+            <el-radio-button label="Circle">圆角</el-radio-button>
+        </el-radio-group> -->
+        <div class="img-view" *ngIf="data.image">
+            <h5 class="text-md">裁剪后的效果</h5>
+            <img [class.rounded-circle]="cropperSettings.rounded" [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight">
+        </div>
+    </div>
+    <div class="img-show">
+        <img-cropper #cropper [image]="data" [settings]="cropperSettings" (onCrop)="cropped($event)"></img-cropper>
+    </div>
+</div>

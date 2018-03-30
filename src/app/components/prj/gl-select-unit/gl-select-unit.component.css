@@ -1,0 +1,24 @@
+.tree-area {
+    position: relative;
+    height: 100%;
+}
+
+.search {
+    padding: 15px;
+    height: 60px;
+    border-bottom: 1px solid #EFF2F7;
+}
+
+.collective {
+    padding: 10px;
+}
+
+.treeview {
+    overflow: auto;
+    position: absolute;
+    top: 60px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

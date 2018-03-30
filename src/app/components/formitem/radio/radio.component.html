@@ -1,0 +1,9 @@
+<div class="form-group">
+    <label class="control-label" [class.required]="required" [style]="labelStyles">{{ labeltext }}</label>
+    <div class="form-vessel" [style]="inputStyles">
+        <label class="checkbox-inline" *ngFor="let item of data">
+          <input type="radio" class="form-radio" [attr.name]="groupname" disabled="{{ isreadonly }}" [(ngModel)]="value" [value]="item.value">
+          {{ item.label }}
+        </label>
+    </div>
+</div>

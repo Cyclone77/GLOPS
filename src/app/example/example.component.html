@@ -1,0 +1,73 @@
+﻿<gl-lrcontrol [leftwidth]="260">
+    <ng-template let-scope="psnData" #left>
+        <div class="treeview">
+            <p-tree [value]="treeData" (onNodeExpand)="nodeExpand($event)" selectionMode="single" [style]="{ 'border': 'none' }" [(selection)]="selectedNode" (onNodeSelect)="nodeSelect($event)" [loading]="loading"></p-tree>
+        </div>
+    </ng-template>
+    <ng-template #right>
+        <div class="content-example">
+            <input type="file" name="file" id="fileUpload" f ile-model="myFile" title="ChooseYour file" onchange="changeHandle($event)" required="required" />
+            <button value="Upload" name="submit" class="btn btn-success" (click)="UploadCompanyContact(event$)">eeeeeeeeeeeee</button>
+
+            <hr>
+            <h1>form组件例子</h1>
+            <hr>
+            <h3>输入框</h3>
+            <div class="form-area">
+                <gl-input labeltext="姓名" [labelwidth]="160" [inputwidth]="260" placeholder="输入姓名" [(value)]="dataName.name" [required]="true" [(status)]="status"></gl-input>
+                <gl-input labeltext="身份证" [labelwidth]="160" [inputwidth]="260" [inline]="true" [ngModel]="'120111196107221479'" [required]="true"></gl-input>
+                <gl-input labeltext="家庭住址" [labelwidth]="160" [inputwidth]="260" [inline]="true" [isreadonly]="true" [ngModel]="'四川省成都市花牌坊街139号'"></gl-input>
+                <gl-input labeltext="邮箱" [labelwidth]="160" [inputwidth]="260" [inline]="true" [isspan]="true" [ngModel]="'email@example.com'"></gl-input>
+                <gl-input labeltext="上传照片" [labelwidth]="160" [inputwidth]="260" [inline]="true" [isspan]="true">
+                    <ng-template #container>
+                        <a href="">测试</a>
+                    </ng-template>
+                </gl-input>
+            </div>
+            <input type="text" style="float: right;" [(ngModel)]="dataName.name" />
+            <button (click)="dataName['name'] = '李四'">测试</button>
+            <hr />
+            <h3>日期选择框</h3>
+            <gl-datepicker labeltext="出生日期" [inputwidth]="260" [(value)]="selectDate" [required]="true" [(status)]="status"></gl-datepicker>
+            <gl-datepicker labeltext="更新时间" [showTime]="true" [inputwidth]="260" [inline]="true"></gl-datepicker>
+            <gl-datepicker labeltext="上班时间" [timeOnly]="true" [inputwidth]="260" [inline]="true"></gl-datepicker>
+            <gl-datepicker labeltext="开发时间" [isspan]="true" [inputwidth]="260" [ngModel]="'2018-02-28'" [inline]="true"></gl-datepicker>
+            <gl-datepicker labeltext="测试时间" [isreadonly]="true" [inputwidth]="260" [ngModel]="'2018-02-28'" [inline]="true"></gl-datepicker>
+            <span style="float: right;">{{ selectDate }}</span>
+            <button (click)="setTime()">设置时间</button>
+
+            <hr />
+            <h3>备注框</h3>
+            <gl-textarea labeltext="备注" [(value)]="textarea" [required]="true" [error]="'字数太少'"></gl-textarea>
+            <gl-textarea labeltext="备注" [ngModel]="'支持多行文本的表单控件。可根据需要改变 rows 属性。'"></gl-textarea>
+            <gl-textarea labeltext="备注" [isreadonly]="true" [ngModel]="'支持多行文本的表单控件。可根据需要改变 rows 属性。'"></gl-textarea>
+            <gl-textarea labeltext="备注" [isspan]="true" [ngModel]="'支持多行文本的表单控件。可根据需要改变 rows 属性。'"></gl-textarea>
+            <span style="float: right;">{{ textarea }}</span>
+            <button (click)="setTextarea()">设置备注</button>
+            <hr>
+            <h3>radio组件</h3>
+            <gl-radio labeltext="性别" [data]="[{ label: '男', value: 1 }, { label: '女', value: 2}]" [inputwidth]="260" [(ngModel)]="radioVal" [required]="true"></gl-radio>
+            <gl-input labeltext="身份证" [labelwidth]="160" [inputwidth]="260" [inline]="true" [ngModel]="'120111196107221479'" [required]="true"></gl-input>
+            <gl-input labeltext="身份证" [labelwidth]="160" [inputwidth]="260" [inline]="true" [ngModel]="'120111196107221479'" [required]="true"></gl-input>
+            <gl-radio labeltext="性别" [data]="[{ label: '男', value: 1 }, { label: '女', value: 2}]" [inputwidth]="260" [(ngModel)]="radioVal" [isreadonly]="true"></gl-radio>
+            <span style="float: right;">{{ radioVal }}</span>
+            <hr>
+            <h3>InputEdit组件</h3>
+            <gl-input-editor [Fields]="SetFields" [labelwidth]="180" [Entity]="FieldData" [getAllField]="false" (GetFieldsData)="SaveFieldVal($event)" #A0101_SetItem></gl-input-editor>
+            <button (click)="setFieldsData()">设置值新Entity</button>
+            <button (click)="setKeyData()">设置健的新值</button>
+            <hr>
+            <!-- <h3>代码框组件</h3>
+            <div class="codetext" style="width: 260px;">
+                <gl-code [CodeID]="field.CodeID" [ModeuleID]="field.MODULE_ID" [title]="field.ItemName" [(model)]="data[field.ItemID]" [CodeText]="data[field.ItemID+'_CN']"></gl-code>
+            </div>
+            <hr> -->
+            <h3>代码框组件</h3>
+            <gl-code-input labeltext="公司类型" codeid="BD" moduleid="M00002" [(value)]="codevalue" [(codetext)]="codetext"></gl-code-input>
+            <gl-code-input labeltext="公司类型" codeid="BD" moduleid="M00002" [(value)]="codevalue" [(codetext)]="codetext" [isreadonly]="true"></gl-code-input>
+            <gl-code-input labeltext="公司类型" codeid="BD" moduleid="M00002" [(value)]="codevalue" [(codetext)]="codetext" [isspan]="true"></gl-code-input>
+            <gl-code-input labeltext="单位" codeid="N" moduleid="M00002" [value]="" [codetext]="" [required]="true"></gl-code-input>
+            <span style="float: right;">{{ codevalue }}</span>
+        </div>
+    </ng-template>
+</gl-lrcontrol>

@@ -1,0 +1,41 @@
+<gl-udcontrol>
+    <ng-template #top>
+        <div class="work-trend-header">
+            <div class="product_core inline">
+                <span class="input_text">产品：</span>
+                <el-select [model]="value" placeholder="请选择" (modelChange)="handle($event)">
+                    <el-option *ngFor="let item of [{value: '选项1',label: '黄金糕' },
+                { value: '选项2', label: '双皮奶' },
+                { elDisabled: true, value: '选项3', label: '蚵仔煎' },
+                { value: '选项4', label: '龙须面' },
+                { value: '选项5', label: '北京烤鸭' }]" [label]="item.label" [value]="item.value">
+                    </el-option>
+                </el-select>
+            </div>
+            <div class="search_psn inline">
+                <span class="input_text">快速定位：</span>
+                <div class="inline">
+                    <el-input [model]="input" placeholder="请输入内容"></el-input>
+                </div>
+            </div>
+            <el-button>查询</el-button>
+        </div>
+    </ng-template>
+    <ng-template #bottom>
+        <div class="work-trend-lyt">
+            <p-dataTable [value]="tblData" [loading]="loading" loadingIcon="fa-refresh" [resizableColumns]="true" (onLazyLoad)="loadCarsLazy($event)" [totalRecords]="totalRecords" [rows]="10" [paginator]="true" [pageLinks]="3" [rowsPerPageOptions]="[5,10,20,50]"
+                [style]="{ 'text-align' : 'center' } ">
+                <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [style]="{ 'width': col.width + '%' }" [ngClass]="'new-car'">
+                    <ng-template let-col let-car="rowData" pTemplate="body">
+                        <span [ngClass]="car['IS_VIEWED'] !== 1 ? 'new-car' : null">{{car[col.field]}}</span>
+                    </ng-template>
+                </p-column>
+                <p-column header="操作" [style]="{ 'width': '20%' }">
+                    <ng-template let-row="rowData" pTemplate="body">
+                        <el-button type="text" size="small" (click)="editNotice(row) ">查看</el-button>
+                    </ng-template>
+                </p-column>
+            </p-dataTable>
+        </div>
+    </ng-template>
+</gl-udcontrol>

@@ -1,0 +1,10 @@
+<div class="gl-card">
+    <ng-container *ngIf="headerTmp">
+        <div class="card-header">
+            <ng-template [ngTemplateOutlet]="headerTmp"></ng-template>
+        </div>
+    </ng-container>
+    <div class="card-body">
+        <ng-content></ng-content>
+    </div>
+</div>

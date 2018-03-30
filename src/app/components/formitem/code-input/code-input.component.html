@@ -1,0 +1,50 @@
+<div class="form-group" [style]="groupStyles">
+    <label class="control-label" [class.required]="required" [style]="labelStyles">{{ labeltext }}</label>
+    <div class="form-vessel" *ngIf="isspan === false; else spanBlock" [style]="inputStyles" [class.has-error]="!status">
+        <input type="text" class="form-control" [class.readonly]="!isreadonly" [placeholder]="placeholder" disabled="{{ isreadonly }}" [(ngModel)]="codetext" readonly (click)="clickHandle($event)">
+
+        <!-- 错误提示 -->
+        <div class="form-item__msg" *ngIf="status === false">{{error}}</div>
+    </div>
+
+
+    <ng-template #spanBlock>
+        <div class="form-vessel" [style]="inputStyles">
+            <p class="form-control-static">{{ codetext }}</p>
+        </div>
+    </ng-template>
+</div>
+<!-- 代码框 -->
+<el-dialog [(visible)]="unitmodal_show" [lock-scroll]="true" [close-on-click-modal]="false">
+    <ng-template #title>
+        <!-- <span class="fa fa-info"></span> -->
+        <span>{{ codename || labeltext }}选择</span>
+    </ng-template>
+    <div class="cdlgc">
+        <gl-findinput [width]="'240px'" [findedData]="findedData" (find-data-ed)="findDataEd($event)"></gl-findinput>
+        <div class="cdlgc-content">
+            <div class="cmenu">
+                <ul class="cmenu-path">
+                    <li>
+                        <a href="javascript:;" (click)="codePathHandle()">{{ codename || labeltext }}</a>
+                    </li>
+                    <li *ngFor="let item of CodePath">
+                        <span>></span>
+                        <a href="javascript:;" (click)="codePathHandle(item.ITEM_ID)">{{ item.ITEM_NAME }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ccontinue clearfix">
+                <ul>
+                    <li *ngFor="let item of Codehierarchy" class="code-item">
+                        <el-tag [el-class]="'tagPot'" (click)="buildSetContinue(item.ITEM_ID
+                        )">{{ item.ITEM_NAME }}</el-tag>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ng-template #footer>
+        <el-button type="primary" size="small" (click)="SelectCodeEvent()">确定</el-button>
+    </ng-template>
+</el-dialog>

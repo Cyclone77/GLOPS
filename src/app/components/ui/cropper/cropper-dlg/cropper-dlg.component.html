@@ -1,0 +1,12 @@
+<el-button type="text" (click)="card.toggle = true">{{ buttonName }}</el-button>
+<el-dialog [(visible)]="card.toggle" [width]="'900px'">
+    <ng-template #title>
+        <span>{{ titleText }}</span>
+    </ng-template>
+    <div class="cropper">
+        <gl-cropper #cropper></gl-cropper>
+    </div>
+    <ng-template #footer>
+        <el-button (click)="imgDlgCropperClose()">确定</el-button>
+    </ng-template>
+</el-dialog>

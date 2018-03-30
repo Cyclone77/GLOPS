@@ -1,0 +1,70 @@
+<div class="gl-slelect-person clearfix">
+    <div class="findperson">
+        <gl-findinput [width]="'220px'" (selected-item)="selectedItem()" [findedData]="findedData" (find-data-ed)="findDataEd()"></gl-findinput>
+        <gl-select-unit-dlg [buttonName]="'选择单位'" (onClick)="selectUnit($event)"></gl-select-unit-dlg>
+        <p class="unit-text" *ngIf="selectedUnit.label!=''; else elseBlock">已选择单位：{{ selectedUnit.label }}</p>
+        <ng-template #elseBlock>
+            <p>未选择单位</p>
+        </ng-template>
+    </div>
+    <div class="personTbl">
+        <p-dataTable [value]="tblData" [lazy]="true" (onLazyLoad)="loadCarsLazy($event)" [totalRecords]="totalRecords" [pageLinks]="3" [rows]="6" [paginator]="true" [style]="{ 'text-align' : 'center' }" (selectionChange)="selectionChange($event)" (onHeaderCheckboxToggle)="onHeaderCheckboxToggle()"
+            selectionMode="single" [(selection)]="selectPerson" (onRowSelect)="onRowSelect($event)">
+            <p-column [style]="{ 'width': '30px' }" *ngIf="!Radio">
+                <ng-template pTemplate="header">
+                    <p-checkbox name="groupname" (onChange)="onHeadChange($event)" [(ngModel)]="selectAll" value="all"></p-checkbox>
+                </ng-template>
+                <ng-template let-row="rowData" pTemplate="body">
+                    <p-checkbox name="person_check" [value]="row.KEY_ID" [(ngModel)]="selectPersonList" (onChange)="onRowChange($event)"></p-checkbox>
+                </ng-template>
+            </p-column>
+            <p-column [style]="{ 'width': '100px' }">
+                <ng-template pTemplate="header">
+                    <span>姓名</span>
+                </ng-template>
+                <ng-template let-row="rowData" pTemplate="body">
+                    {{row.A0101}}
+                </ng-template>
+            </p-column>
+            <p-column [style]="{ 'width': '50px' }">
+                <ng-template pTemplate="header">
+                    <span>性别</span>
+                </ng-template>
+                <ng-template let-row="rowData" pTemplate="body">
+                    {{ row.A0107_CN }}
+                </ng-template>
+            </p-column>
+            <p-column>
+                <ng-template pTemplate="header">
+                    <span>身份证</span>
+                </ng-template>
+                <ng-template let-row="rowData" pTemplate="body">
+                    {{ row.A0177 }}
+                </ng-template>
+            </p-column>
+            <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [style]="{ 'width': col.width + '%' }">
+            </p-column>
+        </p-dataTable>
+    </div>
+
+    <div class="person-field">
+        <div class="eidtor-row psn-photo clearfix">
+            <span class="itemname">照片</span>
+            <div class="photo-area">
+                <img class="psnPhoto" width="116" height="130" [src]="photoPath">
+            </div>
+        </div>
+        <div class="eidtor-row clearfix" *ngFor="let item of personFields">
+            <span class="itemname">{{ item.ITEM_NAME }}</span>
+            <span class="fieldVal" [attr.title]="item.ITEM_VAL">{{ item.ITEM_VAL }}</span>
+        </div>
+    </div>
+    <div class="selected">
+        <span>已选择 {{ selectPersonList.length }}  人</span>
+        <div class="selected-list">
+            <el-tag *ngFor="let tag of selectAtList; let i = index" [closable]="true" [type]="tag.type" (close)="tagPersonClose(i)">
+                {{tag.A0101}}
+            </el-tag>
+        </div>
+    </div>
+</div>

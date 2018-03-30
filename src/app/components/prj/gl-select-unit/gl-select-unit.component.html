@@ -1,0 +1,14 @@
+<div class="tree-area">
+    <div class="search">
+        <div class="ui-inputgroup">
+            <gl-findinput [width]="'220px'" (selected-item)="selectedItem($event)" [findedData]="findUnitList" (find-data-ed)="findDataEd($event)"></gl-findinput>
+        </div>
+    </div>
+    <div class="treeview" #treeArea>
+        <p-tree #expandingTree [value]="treeData" (onNodeExpand)="nodeExpand($event)" selectionMode="single" [style]="{ 'border': 'none' }" [(selection)]="selectNode" (onNodeSelect)="nodeSelect($event)" [selectionMode]="selectionMode" [propagateSelectionDown]="propagate">
+            <ng-template let-node pTemplate="default">
+                <span [attr.title]="node.label" [innerHTML]="node.label" (dblclick)="dbTreeClick($event, node)"></span>
+            </ng-template>
+        </p-tree>
+    </div>
+</div>

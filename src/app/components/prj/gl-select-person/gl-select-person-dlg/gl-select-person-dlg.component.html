@@ -1,0 +1,10 @@
+<el-button type="text" (click)="selectBefore()" class='busi-item-selectedperson' [size]="size">{{ buttonName }}</el-button>
+<el-dialog [(visible)]="card.toggle" [width]="'800px'">
+    <ng-template #title>
+        <span>{{ titleText }}</span>
+    </ng-template>
+    <gl-select-person (selectAtListChange)="selectAtListChange($event)" [selectAtList]="selectPersonList" [Where]="WHERE" [Radio]="Radio" (selectPersonChange)="selectPersonChange($event)" #selectPerson></gl-select-person>
+    <ng-template #footer>
+        <el-button (click)="personDlgSelect()" type="primary" size="small">确定</el-button>
+    </ng-template>
+</el-dialog>

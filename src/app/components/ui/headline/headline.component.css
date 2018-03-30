@@ -1,0 +1,23 @@
+.headline {
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 2px solid #EFF2F7;
+}
+
+.headline .title {
+    margin-left: 20px;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    color: #41546d;
+    font-size: 20px;
+    padding-left: 10px;
+    border-left: 5px solid #3593f0;
+    font-weight: normal;
+    color: #1f2f3d;
+}
+
+.headline .core {
+    display: inline-block;
+    margin-left: 20px;
+}

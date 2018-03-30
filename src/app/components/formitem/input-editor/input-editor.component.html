@@ -1,0 +1,20 @@
+<div class="editor-txtInputEditor">
+    <ng-container class="editor-item" *ngFor="let item of Fields">
+        <gl-input [inline]="item.inline || inline" [isreadonly]="item.isreadonly || isreadonly" [labeltext]="item.labeltext" [labelwidth]="item.labelwidth || labelwidth" [isspan]="item.isspan || isspan" *ngIf="item.datatype === 'string'" [required]="item.required || required"
+            [(status)]="item.status" [(value)]="Entity[item.itemid]" [placeholder]="item.placeholder"></gl-input>
+
+        <gl-datepicker [inline]="item.inline || inline" [isreadonly]="item.isreadonly || isreadonly" [labeltext]="item.labeltext" [labelwidth]="item.labelwidth || labelwidth" [isspan]="item.isspan || isspan" [required]="item.required || required" [(status)]="item.status"
+            *ngIf="item.datatype === 'date'" [(value)]="Entity[item.itemid]" [placeholder]="item.placeholder"></gl-datepicker>
+
+        <gl-textarea [labeltext]="item.labeltext" [isreadonly]="item.isreadonly || isreadonly" [isspan]="item.isspan || isspan" [labelwidth]="item.labelwidth || labelwidth" *ngIf="item.datatype === 'memo'" [required]="item.required || required" [(status)]="item.status"
+            [(value)]="Entity[item.itemid]" [placeholder]="item.placeholder"></gl-textarea>
+
+        <gl-code-input [labeltext]="item.labeltext" [isreadonly]="item.isreadonly || isreadonly" [isspan]="item.isspan || isspan" [labelwidth]="item.labelwidth || labelwidth" [moduleid]="item.moduleid" [codeid]="item.codeid" *ngIf="item.datatype === 'code'" [required]="item.required || required"
+            [(status)]="item.status" [(value)]="Entity[item.itemid]" [(codetext)]="Entity[item.itemid + '_CN']" [placeholder]="item.placeholder"></gl-code-input>
+    </ng-container>
+    <gl-input [inline]="true" *ngIf="!(isspan || isreadonly)" [labelwidth]="labelwidth">
+        <ng-template #container>
+            <button type="button" class="btn btn-primary" (click)="SaveEvent($event)">{{ ButtonName }}</button>
+        </ng-template>
+    </gl-input>
+</div>

@@ -1,0 +1,174 @@
+.sidebar {
+    height: 100%;
+    padding: 0 20px;
+    background-color: #3f9ffe;
+    padding-left: 0;
+}
+
+.syscore {
+    height: 100%;
+    line-height: 60px;
+    float: right;
+}
+
+.gl-logo {
+    position: relative;
+    height: 100%;
+    width: 260px;
+    display: block;
+    background-color: #3596fa;
+    margin-left: 0;
+    float: left;
+}
+
+.gl-logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.gl-head-menu {
+    display: block;
+    height: 100%;
+    float: left;
+}
+
+.head-menu-btn {
+    display: block;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+.head-menu-btn:hover {
+    background-color: #287fd8;
+}
+
+.head-menu-btn.switch {
+    width: 60px;
+    color: #fff;
+}
+
+.syscore .address-book,
+.syscore .address-title {
+    color: #fff;
+}
+
+.el-dropdown,
+.drop-text {
+    margin-left: 10px;
+    color: #fff;
+}
+
+.address-dlg {
+    background-color: #fff;
+    border: none;
+    width: 24rem;
+}
+
+.address-dlg .title {
+    font-size: 18px;
+}
+
+.address-list {
+    position: absolute;
+    top: 40px;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.text-search {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    right: 20px;
+    margin: auto;
+    height: 40px;
+}
+
+.books-list {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    right: 0px;
+    bottom: 10px;
+    margin: auto;
+    overflow: auto;
+    overflow-x: hidden;
+    color: #000;
+}
+
+.books-list .address-book {
+    cursor: pointer;
+    height: 48px;
+    line-height: 48px;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0 20px;
+    overflow: hidden;
+    transition: height .3s;
+}
+
+.books-list .address-book[fid="true"] {
+    height: 110px;
+    border-top: 2px solid #3D9FFD;
+    background-color: #F8F9FB;
+}
+
+.address-book .address-name {
+    height: 48px;
+    line-height: 48px;
+    position: relative;
+}
+
+.address-book .address-phone .phone {
+    margin-left: 80px;
+    color: #B7BDC2;
+}
+
+.address-book .address-phone .phone>span {
+    color: #000;
+}
+
+.address-book .address-phone {
+    line-height: 30px;
+}
+
+.address-book[fid="true"] .address-name:before {
+    content: "";
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    background-color: #4EC58C;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.books-list .unit,
+.books-list .name {
+    display: block;
+    float: left;
+}
+
+.books-list .name {
+    width: 80px;
+    padding-left: 10px;
+}
+
+.books-list .unit {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    width: 160px;
+}

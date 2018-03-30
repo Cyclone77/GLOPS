@@ -1,0 +1,15 @@
+<el-button type="text" (click)="card.toggle = true" [size]="size">{{ buttonName }}</el-button>
+<el-dialog [(visible)]="card.toggle" [width]="'360px'">
+    <ng-template #title>
+        <span>{{ titleText }}</span>
+    </ng-template>
+    <div class="selectTree" [ngStyle]="{ 'height.px': bodyHeight }">
+        <gl-select-unit [(isCheckBox)]="isCheckBox" (onSelectedNode)="SelectedNode($event)" [(propagate)]="propagate"></gl-select-unit>
+    </div>
+    <ng-template #footer>
+        <span style="float:left;margin-left: 10px;" *ngIf="isCheckBox">
+          <el-checkbox [(model)]="propagate">是否选中下层</el-checkbox>
+        </span>
+        <el-button (click)="unitDlgSelect()" type="primary" size="small">确定</el-button>
+    </ng-template>
+</el-dialog>

@@ -1,0 +1,69 @@
+li {
+    list-style: none;
+}
+
+.code-content {
+    position: relative;
+    line-height: 40px;
+}
+
+.code_item {
+    background-color: bisque;
+}
+
+.code_put {
+    color: transparent;
+    background-color: #E5E9F2;
+}
+
+.code_text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 0 25px 0 15px;
+    color: #5a5e66;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
+    font-size: inherit;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.cdlgc {
+    max-height: 400px;
+}
+
+.cdlgc-content {
+    max-height: 400px;
+    overflow: auto;
+}
+
+.code-item {
+    display: block;
+    float: left;
+    padding: 0px 20px 2px 0;
+}
+
+.cmenu {
+    margin-top: 10px;
+}
+
+.cmenu-path {
+    display: inline-block;
+}
+
+.cmenu-path li {
+    display: inline;
+    margin: 2px 5px;
+}
+
+.tagPot {
+    cursor: pointer;
+}

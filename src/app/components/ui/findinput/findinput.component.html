@@ -1,0 +1,15 @@
+<div class="gl-select" [style]="makeSelectStyles()" (mouseenter)="mouseHandle(true)" (mouseleave)="mouseHandle(false)">
+    <el-input [placeholder]="placeholder" icon="search" [(model)]="findText" (icon-click)="finddata()" size="small">
+    </el-input>
+    <div class="select-dropdown" *ngIf="selectShow">
+        <ul class="select-area">
+            <li *ngFor="let item of findedData" class="select-item" (click)="selectItem(item)" [attr.title]="item.label">
+                <span>{{ item.label }}</span>
+                <!-- <el-tooltip placement="right-start">
+                    <span>{{ item.label }}</span>
+                    <ng-template #tip><span>{{ item.label }}</span></ng-template>
+                </el-tooltip> -->
+            </li>
+        </ul>
+    </div>
+</div>

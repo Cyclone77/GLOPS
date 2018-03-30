@@ -1,0 +1,8 @@
+<div class="headline">
+    <p class="title">{{title}}</p>
+    <ng-container *ngIf="containerTemp">
+        <div class="core">
+            <ng-template [ngTemplateOutlet]="containerTemp"></ng-template>
+        </div>
+    </ng-container>
+</div>

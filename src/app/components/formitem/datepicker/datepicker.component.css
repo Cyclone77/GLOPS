@@ -1,0 +1,72 @@
+.form-group {
+    display: inline-block;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group::after,
+.form-group::before {
+    display: table;
+    content: " ";
+}
+
+.form-group::after {
+    clear: both;
+}
+
+.form-group .control-label,
+.form-group .form-vessel {
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.form-group .form-vessel {
+    display: table;
+}
+
+.form-group .control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.form-group .control-label.required::before {
+    content: "*";
+    color: #fa5555;
+    padding-right: 4px;
+}
+
+.form-group .form-vessel .form-btn {
+    outline: none;
+    z-index: 2;
+    margin-left: -1px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-group .has-error .form-btn {
+    border-color: #a94442;
+}
+
+.form-group .form-vessel .form-control[disabled] {
+    border-radius: 4px;
+}
+
+.form-group .form-vessel .calendar-time,
+.form-group .form-vessel .form-item__msg {
+    position: absolute;
+    top: 100%;
+    left: 10px;
+}
+
+.form-group .form-vessel .calendar-time {
+    z-index: 3;
+}
+
+.form-group .form-vessel .form-item__msg {
+    color: #fa5555;
+    font-size: 12px;
+    line-height: 1;
+    padding-top: 2px;
+}

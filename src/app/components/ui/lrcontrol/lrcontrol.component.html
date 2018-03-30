@@ -1,0 +1,20 @@
+<div class="gl-layout">
+    <ng-container *ngIf="leftTmp">
+
+        <div class="gl-left" [ngStyle]="{ 'width.px': leftwidth }">
+            <ng-template [ngTemplateOutlet]="leftTmp" [ngTemplateOutletContext]="{ psnData: { name : '张三' } }"></ng-template>
+            <div class="swtch-tip" [ngClass]="{ 'glhide': !swtchState }" (click)="switchTip()">
+                <i class="fa " [ngClass]="{ 'fa-angle-double-left' : !swtchState, 'fa-angle-double-right': swtchState }" aria-hidden="true"></i>
+            </div>
+        </div>
+
+    </ng-container>
+    <div class="gl-area">
+        <ng-container *ngIf="rightTmp">
+            <div class="gl-carrier" [ngStyle]="{ 'margin-left.px': leftwidth, 'backgroundColor': bgcolor }">
+                <ng-template [ngTemplateOutlet]=" rightTmp "></ng-template>
+            </div>
+        </ng-container>
+
+    </div>
+</div>

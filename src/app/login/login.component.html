@@ -1,0 +1,81 @@
+<!-- <div class="layout">
+    <el-form label-width="100px">
+        <el-form-item label="帐号">
+            <el-input [(ngModel)]="usrData.UserAccount"></el-input>
+        </el-form-item>
+
+        <el-form-item label="密码">
+            <el-input native-type="password" [(ngModel)]="usrData.Password"></el-input>
+        </el-form-item>
+
+        <el-form-item>
+            <el-button type="primary" (click)="login()">登录</el-button>
+        </el-form-item>
+
+    </el-form>
+</div> -->
+
+<!-- <div class="login-clean">
+    <div class="login-continue">
+        <h2 class="sr-only">Login Form</h2>
+        <div class="illustration">
+            <img src="assets/sysimgs/login.png" alt="">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="test" [(ngModel)]="usrData.UserAccount" placeholder="用户名">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" [(ngModel)]="usrData.Password" name="password" placeholder="密码">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit" (click)="login()">登录</button>
+        </div>
+    </div>
+</div> -->
+<div class="htmleaf-container">
+    <div class="wrapper">
+        <div class="gl-logo">
+            <img src="assets/sysimgs/Login_logo.png" alt="logo">
+        </div>
+        <div class="container">
+            <h1><img src="assets/sysimgs/login_title.png" alt="welcome"></h1>
+            <div class="gl-form">
+                <div class="form-group">
+                    <input class="form-control username" (focus)='initMsg()' type="text" [(ngModel)]="usrData.UserAccount" placeholder="账 号">
+                </div>
+                <div class="form-group">
+                    <input class="form-control password" (focus)='initMsg()' type="password" [(ngModel)]="usrData.Password" name="password" placeholder="密 码">
+                    <div *ngIf="loginMsg?.type=='inputErr'" class="inputErr">
+                        {{loginMsg['msg']}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" (click)="login()">登录</button>
+                </div>
+                <div class="form-group">
+                    <div *ngIf="loginMsg?.type=='respondErr'" class="respondErr">
+                        {{loginMsg['msg']}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <footer>
+            <p class="text-center">
+                Copyright © 1996- 2018 GlSoft.All Rights Reserved.
+                <br> 四川广力软件科技有限公司 版权所有
+            </p>
+        </footer>
+    </div>
+</div>

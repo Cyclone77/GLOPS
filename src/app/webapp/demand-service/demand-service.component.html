@@ -1,0 +1,76 @@
+<div class="page__bd page__bd_spacing ">
+    <div class="weui-panel" id="form">
+        <div class="weui-panel__bd">
+            <div class="weui-media-box weui-media-box_text">
+                <h4 class="weui-media-box__title" *ngIf="IS_Subscribe === 'subscribe'">预约服务</h4>
+                <h4 class="weui-media-box__title" *ngIf="IS_Subscribe !== 'subscribe'">获得服务</h4>
+                <p class="weui-media-box__desc"> 服务时间：8：30-18：00（周一至周五）</p>
+            </div>
+        </div>
+
+        <div class="weui-cells">
+            <div class="weui-cells__title">选请选择需要服务的产品：</div>
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1" [(ngModel)]="ServiceData.PRODUCT" required emptyTips="请选择服务的产品">
+                      <option *ngFor="let item of ProductList" [value]="item.ITEM_ID"  >{{ item.ITEM_NAME }}</option>
+                  </select>
+                </div>
+            </div>
+            <div class="weui-cells__title">产品运行网络环境：</div>
+            <div class="weui-cell weui-cell_select">
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select1" [(ngModel)]="ServiceData.NETWORK" required emptyTips="请选择网络环境">
+                        <option *ngFor="let item of Networks" [value]="item.ITEM_ID" >{{ item.ITEM_NAME }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cells__title">请简单描述问题：</div>
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                        <textarea class="weui-textarea" placeholder="请输入文本" rows="3" [(ngModel)]="ServiceData.DESCRIPTOPN" required emptyTips="请输入问题描述"></textarea>
+                        <div class="weui-textarea-counter"><span>{{ServiceData.DESCRIPTOPN.length}}</span>/200</div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="IS_Subscribe === 'subscribe'">
+                <div class="weui-cells__title">预约时间：</div>
+                <div class="weui-cells weui-cells_form">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd">
+                            <input class="weui-input" type="datetime-local" value="" placeholder="" [(ngModel)]="ServiceData.SUBSCRIBE_TIME" required emptyTips="请选择预约时间" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader" id="uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">图片上传</p>
+                            <div class="weui-uploader__info"><span id="uploadCount">{{File_Opt['length']}}</span>/5</div>
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles"></ul>
+                            <div class="weui-uploader__input-box">
+                                <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a href="javascript:;" class="weui-btn weui-btn_primary" (click)="SubmitService()">提交</a>
+
+    <div class="weui-footer">
+        <p class="weui-footer__links">
+            <a href="javascript:home();" class="weui-footer__link">广力软件</a>
+        </p>
+        <p class="weui-footer__text">Copyright &copy; 1996-2018 广力公司</p>
+    </div>
+</div>

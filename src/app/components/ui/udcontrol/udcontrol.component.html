@@ -1,0 +1,12 @@
+<div class="gl-layout">
+    <ng-container>
+        <div class="gl-salarcore" *ngIf="topTmp" [ngStyle]="{ 'padding.px': padding }" #topEl>
+            <ng-template [ngTemplateOutlet]="topTmp"></ng-template>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="bottomTmp">
+        <div class="gl-panel" [ngStyle]="{ 'top.px': top }">
+            <ng-template [ngTemplateOutlet]="bottomTmp"></ng-template>
+        </div>
+    </ng-container>
+</div>

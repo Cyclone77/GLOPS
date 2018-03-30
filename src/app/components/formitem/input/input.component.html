@@ -1,0 +1,25 @@
+<div class="form-group" [style]="groupStyles">
+    <label class="control-label" [class.required]="required" [style]="labelStyles">{{ labeltext }}</label>
+    <ng-container *ngIf="containerTemp; else customBlock">
+        <div class="form-vessel">
+            <div class="form-item-container" [style]="inputStyles">
+                <ng-template [ngTemplateOutlet]="containerTemp"></ng-template>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #customBlock>
+        <div class="form-vessel" *ngIf="isspan === false; else spanBlock" [style]="inputStyles" [class.has-error]="!status">
+            <input type="text" class="form-control" [placeholder]="placeholder" disabled="{{ isreadonly }}" [(ngModel)]="value">
+            <span class="form-control-feedback" aria-hidden="true" *ngIf="status === false">
+                <i class="fa fa-close "></i>
+            </span>
+            <div class="form-item__msg" *ngIf="status === false">{{error}}</div>
+        </div>
+
+        <ng-template #spanBlock>
+            <div class="form-vessel" [style]="inputStyles">
+                <p class="form-control-static">{{ value }}</p>
+            </div>
+        </ng-template>
+    </ng-template>
+</div>

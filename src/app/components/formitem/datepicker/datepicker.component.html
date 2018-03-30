@@ -1,0 +1,27 @@
+<div class="form-group" [style]="groupStyles">
+    <label class="control-label" [class.required]="required" [style]="labelStyles">{{ labeltext }}</label>
+    <div class="form-vessel input-group" *ngIf="isspan === false; else spanBlock" [style]="inputStyles" (mouseover)="onMouse(true)" (mouseout)="onMouse(false)" [class.has-error]="!status">
+        <input type="text" class="form-control" [placeholder]="placeholder" disabled="{{ isreadonly }}" [(ngModel)]="value" readonly (click)="this.calendar_show = true">
+        <span class="input-group-btn" *ngIf="!isreadonly">
+          <button class="btn btn-default form-btn" type="button" (click)="onSelectCalendar()">
+            <i class="fa fa-calendar"></i>
+          </button>
+        </span>
+
+        <!-- 错误提示 -->
+        <div class="form-item__msg" *ngIf="status === false">{{error}}</div>
+
+        <!-- 日期选择组件 -->
+        <div class="calendar-time" *ngIf="calendar_show" [style]="inputStyles">
+            <p-calendar [(ngModel)]="dateValue" [inline]="true" [locale]="ch" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2100" [showTime]="showTime" [timeOnly]="timeOnly" [showOtherMonths]="false" (onSelect)="selectTimeDay($event)" [showButtonBar]="!timeOnly"
+                (onClearClick)="clearValue()"></p-calendar>
+        </div>
+    </div>
+
+
+    <ng-template #spanBlock>
+        <div class="form-vessel" [style]="inputStyles">
+            <p class="form-control-static">{{ value }}</p>
+        </div>
+    </ng-template>
+</div>

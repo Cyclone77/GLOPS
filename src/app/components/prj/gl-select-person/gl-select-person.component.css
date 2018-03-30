@@ -1,0 +1,73 @@
+.gl-slelect-person {
+    width: 760px;
+}
+
+.findperson {
+    margin-bottom: 10px;
+}
+
+.unit-text1 {
+    max-width: 350px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.personTbl {
+    width: 500px;
+    float: left;
+}
+
+.person-field {
+    width: 250px;
+    float: right;
+}
+
+.person-field .itemname {
+    width: 70px;
+    text-align: right;
+    margin-right: 10px;
+    float: left;
+}
+
+.person-field .fieldVal {
+    max-width: 160px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.psn-photo .itemname {
+    float: left;
+}
+
+.person-field .photo-area {
+    width: 116px;
+    height: 130px;
+    float: left;
+    background-image: url('/assets/sysimgs/photoFrame.jpg');
+    background-repeat: no-repeat;
+}
+
+.selected {
+    width: 100%;
+    float: left;
+}
+
+.selected-list {
+    height: 120px;
+    border: 1px solid #e6ebf5;
+    padding: 5px;
+    overflow: auto;
+}
+
+.psnPhoto {
+    display: block;
+}
+
+.psnPhoto[src='null'] {
+    display: none;
+}

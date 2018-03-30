@@ -1,0 +1,29 @@
+.gl-card {
+    border: 1px solid #e6ebf5;
+    background-color: #fff;
+    color: #2d2f33;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.gl-card:hover {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.card-header {
+    padding: 8px 12px;
+    height: 50px;
+    border-bottom: 1px solid #e6ebf5;
+    box-sizing: border-box;
+}
+
+.card-body {
+    padding: 15px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}

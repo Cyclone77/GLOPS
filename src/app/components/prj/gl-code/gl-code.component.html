@@ -1,0 +1,49 @@
+<!-- 代码输入框 -->
+<!-- <el-input [size]="csize" placeholder="请输入内容" (click)="clickHandle($event)" [attr.disabled]="gldisabled" [value]="value" [ngModel]="model" (ngModelChange)="handleInput($event)">
+</el-input> -->
+<div class="el-input--small code-content">
+    <input class="el-input__inner code_put" placeholder="请输入内容" [ngModel]="model" (ngModelChange)="handleInput($event)" [attr.disabled]="gldisabled" />
+    <span class="code_text" (click)="clickHandle($event)" [attr.title]="CodeText">{{ CodeText }}</span>
+</div>
+
+<!-- 代码框 -->
+<el-dialog [(visible)]="code.toggle" [lock-scroll]="true">
+    <ng-template #title>
+        <!-- <span class="fa fa-info"></span> -->
+        <span>{{ codeTitle }}选择</span>
+    </ng-template>
+    <div class="cdlgc" [el-loading]="code.loading" [text]="'拼命加载中'">
+        <gl-findinput [width]="'240px'" (selected-item)="findSelectedItem($event)" [findedData]="findedData" (find-data-ed)="findDataEd($event)"></gl-findinput>
+        <div class="cdlgc-content">
+            <div class="cmenu">
+                <!-- <el-breadcrumb separator=">" prevent="true" (next)="codePathHandle($event)">
+                <el-breadcrumb-item to=".">{{ codeTitle }}</el-breadcrumb-item>
+                <el-breadcrumb-item *ngFor="let item of CodePath" [to]="item.ItemID">{{ item.ItemName }}</el-breadcrumb-item>
+            </el-breadcrumb> -->
+                <ul class="cmenu-path">
+                    <li>
+                        <a href="javascript:;" (click)="codePathHandle($event)">{{ codeTitle }}</a>
+                    </li>
+                    <li *ngFor="let item of CodePath">
+                        <span>></span>
+                        <a href="javascript:;" (click)="codePathHandle(item)">{{ item.ITEM_NAME }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ccontinue clearfix">
+                <ul>
+                    <li *ngFor="let item of Codehierarchy" class="code-item">
+                        <el-tag [el-class]="'tagPot'" (click)="selectCodeItem(item)">{{ item.ITEM_NAME }}</el-tag>
+                        <!-- <el-button type="text" title="item.ItemName" (click)="selectCodeItem(item)">{{ item.ItemName }}</el-button> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <ng-template #footer>
+        <el-button type="primary" size="small" (click)="closeDlg()">确定</el-button>
+    </ng-template>
+</el-dialog>
+
+<!-- 消息提示 -->
+<p-growl [life]="3000" [baseZIndex]="9999"></p-growl>
